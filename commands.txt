@@ -1,0 +1,9 @@
+sudo /etc/init.d/apache2 stop
+sudo /etc/init.d/mysql stop
+sudo /opt/lampp/lampp restart
+cd srcp/unused
+python quotes.py
+rm hello.txt && touch hello.txt //to delete and refresh the  output 
+php set2t.php >set2t.csv   ///in cronjob
+
+ngrok 5000

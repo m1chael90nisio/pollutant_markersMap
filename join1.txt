@@ -1,0 +1,8 @@
+    SELECT coordsS02.x,coordsS02.y,  
+    *.pollutionS02  
+    FROM coordsS02 ,pollutionS02  
+    WHERE  coordsS02.id =pollutionS02.id  
+    
+
+
+SELECT coords.x,coords.y,pollution.pollutant,pollution.numeric_val,pollution.country_c,S02.pollutant1,S02.numeric_val1 FROM coords ,pollution,S02 WHERE coords.id =pollution.id AND coords.x =S02.x AND coords.y=S02.y 

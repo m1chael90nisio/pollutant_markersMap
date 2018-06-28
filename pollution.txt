@@ -1,0 +1,19 @@
+
+LOAD DATA LOCAL INFILE '/home/user/records.xml' INTO TABLE pollution 
+CHARACTER SET binary 
+LINES STARTING BY '<record>' TERMINATED BY '</record>'
+ (@record) SET 
+country_c = ExtractValue(@record:=CONVERT(@record using utf8),'network_countrycode'),
+ pollutant = ExtractValue(@record, 'pollutant'),
+ numeric_val = ExtractValue(@record, 'value_numeric'), 
+datetime_begin = ExtractValue(@record, 'value_datetime_begin'), 
+station_name = ExtractValue(@record, 'station_name')
+ 
+
+delete  from pollution; ///deleting everything so that i will get new data
+
+
+
+Alter Table pollution add id int auto_increment primary key   
+
+Alter Table coords add id int auto_increment primary key    

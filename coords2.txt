@@ -1,0 +1,20 @@
+LOAD XML LOCAL INFILE '/home/user/records.xml'
+       INTO TABLE coords
+       ROWS IDENTIFIED BY '<samplingpoint_point>';
+
+
+
+LOAD DATA LOCAL INFILE '/home/user/records.xml'
+INTO TABLE coords
+CHARACTER SET binary
+LINES STARTING BY '<record>' TERMINATED BY '</record>'
+fields IDENTIFIED BY '<samplingpoint_point>'
+
+(@record)
+SET
+  x = ExtractValue(@record:=CONVERT(@record using utf8), 'x'),
+ 
+;
+
+ 
+
